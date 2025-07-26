@@ -1,0 +1,432 @@
+---
+// Escape Game Survey Component
+---
+
+<div class="main-container">
+	<!-- Background Image -->
+	<div class="background-image"></div>
+	<div class="overlay"></div>
+
+	<!-- Main Content -->
+	<div class="content">
+		<div class="header-section">
+			<h1 class="main-title">Jeu d'Évasion Aventure en Plein Air</h1>
+			<p class="description">
+				Défiez-vous dans le terrain de jeu de la nature avec des jeux d'évasion immersifs dans des décors de montagnes et de forêts à couper le souffle
+			</p>
+			<div class="coming-soon">
+				<span class="status-badge">🎉 Ouverture Mai 2026 ! 🎉</span>
+			</div>
+		</div>
+
+		<!-- Survey Section -->
+		<div class="survey-section">
+			<h2 class="survey-title">🌟 Aidez-nous à créer l'expérience parfaite ! 🌟</h2>
+			<p class="survey-subtitle">Vos réponses sont complètement anonymes et nous aideront à concevoir la meilleure aventure pour toute la famille !</p>
+			<form class="survey-form" id="surveyForm">
+				<!-- Question 1 -->
+				<div class="question-group">
+					<label class="question-label">
+						🚶‍♀️ 1. Êtes-vous intéressé par un jeu d'évasion pendant une randonnée ?
+					</label>
+					<div class="radio-group">
+						<label class="radio-option">
+							<input type="radio" name="interested" value="oui" required>
+							<span class="radio-custom"></span>
+							Oui, très intéressé(e)
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="interested" value="peut-etre" required>
+							<span class="radio-custom"></span>
+							Peut-être, selon les détails
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="interested" value="non" required>
+							<span class="radio-custom"></span>
+							Non, pas intéressé(e)
+						</label>
+					</div>
+				</div>
+
+				<!-- Question 2 -->
+				<div class="question-group">
+					<label class="question-label">
+						👨‍👩‍👧‍👦 2. Combien de joueurs seriez-vous si vous jouiez maintenant ?
+					</label>
+					<div class="radio-group">
+						<label class="radio-option">
+							<input type="radio" name="players" value="1-2" required>
+							<span class="radio-custom"></span>
+							1-2 joueurs
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="players" value="3-4" required>
+							<span class="radio-custom"></span>
+							3-4 joueurs
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="players" value="5-6" required>
+							<span class="radio-custom"></span>
+							5-6 joueurs
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="players" value="7+" required>
+							<span class="radio-custom"></span>
+							7+ joueurs
+						</label>
+					</div>
+				</div>
+
+				<!-- Question 3 -->
+				<div class="question-group">
+					<label class="question-label">
+						3. Combien de temps voulez-vous que cela dure ? À quelle fréquence voulez-vous résoudre des énigmes par rapport à simplement randonner ?
+					</label>
+					<div class="radio-group">
+						<label class="radio-option">
+							<input type="radio" name="duration" value="court-enigmes" required>
+							<span class="radio-custom"></span>
+							1-2h, beaucoup d'énigmes
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="duration" value="moyen-equilibre" required>
+							<span class="radio-custom"></span>
+							2-3h, équilibre énigmes/randonnée
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="duration" value="long-randonnee" required>
+							<span class="radio-custom"></span>
+							3-4h, plus de randonnée, quelques énigmes
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="duration" value="journee-complete" required>
+							<span class="radio-custom"></span>
+							Journée complète, énigmes occasionnelles
+						</label>
+					</div>
+				</div>
+
+				<!-- Question 4 -->
+				<div class="question-group">
+					<label class="question-label">
+						4. Combien feriez-vous payer un tel jeu d'évasion si vous étiez le propriétaire (par personne) ?
+					</label>
+					<div class="radio-group">
+						<label class="radio-option">
+							<input type="radio" name="price" value="10-20" required>
+							<span class="radio-custom"></span>
+							10-20€ par personne
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="price" value="20-35" required>
+							<span class="radio-custom"></span>
+							20-35€ par personne
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="price" value="35-50" required>
+							<span class="radio-custom"></span>
+							35-50€ par personne
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="price" value="50+" required>
+							<span class="radio-custom"></span>
+							50€+ par personne
+						</label>
+					</div>
+				</div>
+
+				<button type="submit" class="submit-button">
+					Envoyer mes Réponses
+				</button>
+			</form>
+
+			<div class="thank-you" id="thankYou" style="display: none;">
+				<h3>Merci pour vos réponses !</h3>
+				<p>Vos commentaires nous aideront à créer la meilleure expérience de jeu d'évasion en plein air possible.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById('surveyForm').addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		// Hide form and show thank you message
+		document.getElementById('surveyForm').style.display = 'none';
+		document.getElementById('thankYou').style.display = 'block';
+		
+		// Scroll to thank you message
+		document.getElementById('thankYou').scrollIntoView({ behavior: 'smooth' });
+	});
+</script>
+
+<style>
+	:root {
+		--primary-green: #2D5016;
+		--primary-blue: #1E3A8A;
+		--accent-orange: #EA580C;
+		--white: #FFFFFF;
+		--neutral-100: #F3F4F6;
+		--neutral-200: #E5E7EB;
+		--neutral-600: #4B5563;
+		--neutral-700: #374151;
+		--neutral-800: #1F2937;
+		--spacing: 8px;
+	}
+
+	.main-container {
+		position: relative;
+		min-height: 100vh;
+		width: 100%;
+	}
+
+	.background-image {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		z-index: -2;
+	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(59, 130, 246, 0.4) 50%, rgba(251, 191, 36, 0.3) 100%);
+		z-index: -1;
+	}
+
+	.content {
+		position: relative;
+		z-index: 1;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: calc(var(--spacing) * 6) calc(var(--spacing) * 3);
+	}
+
+	.header-section {
+		text-align: center;
+		margin-bottom: calc(var(--spacing) * 8);
+		color: var(--white);
+	}
+
+	.main-title {
+		font-family: 'Playfair Display', serif;
+		font-size: clamp(36px, 6vw, 56px);
+		font-weight: 700;
+		margin: 0 0 calc(var(--spacing) * 3) 0;
+		line-height: 1.2;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.description {
+		font-size: clamp(16px, 2.5vw, 20px);
+		line-height: 1.6;
+		margin: 0 0 calc(var(--spacing) * 4) 0;
+		color: var(--neutral-100);
+		font-weight: 400;
+	}
+
+	.coming-soon {
+		margin-top: calc(var(--spacing) * 4);
+	}
+
+	.status-badge {
+		display: inline-block;
+		background: linear-gradient(135deg, var(--accent-orange) 0%, #F97316 100%);
+		color: var(--white);
+		padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+		border-radius: calc(var(--spacing) * 3);
+		font-weight: 600;
+		font-size: 16px;
+		box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+		animation: pulse 2s infinite;
+	}
+
+	@keyframes pulse {
+		0% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+		100% { transform: scale(1); }
+	}
+
+	.survey-section {
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(20px);
+		border-radius: calc(var(--spacing) * 2);
+		padding: calc(var(--spacing) * 4);
+		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+	}
+
+	.survey-title {
+		font-family: 'Playfair Display', serif;
+		font-size: 28px;
+		font-weight: 600;
+		color: var(--neutral-800);
+		text-align: center;
+		margin: 0 0 calc(var(--spacing) * 4) 0;
+	}
+
+	.survey-form {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 4);
+	}
+
+	.question-group {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 2);
+	}
+
+	.question-label {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--neutral-800);
+		line-height: 1.4;
+	}
+
+	.radio-group {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--spacing) * 1.5);
+		margin-left: calc(var(--spacing) * 2);
+	}
+
+	.radio-option {
+		display: flex;
+		align-items: center;
+		gap: calc(var(--spacing) * 1.5);
+		cursor: pointer;
+		padding: calc(var(--spacing) * 1);
+		border-radius: calc(var(--spacing) * 1);
+		transition: background-color 0.2s ease;
+		font-size: 16px;
+		color: var(--neutral-700);
+	}
+
+	.radio-option:hover {
+		background-color: var(--neutral-100);
+	}
+
+	.radio-option input[type="radio"] {
+		display: none;
+	}
+
+	.radio-custom {
+		width: 20px;
+		height: 20px;
+		border: 2px solid var(--neutral-600);
+		border-radius: 50%;
+		position: relative;
+		flex-shrink: 0;
+		transition: all 0.2s ease;
+	}
+
+	.radio-option input[type="radio"]:checked + .radio-custom {
+		border-color: var(--primary-green);
+		background-color: var(--primary-green);
+	}
+
+	.radio-option input[type="radio"]:checked + .radio-custom::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 8px;
+		height: 8px;
+		background-color: var(--white);
+		border-radius: 50%;
+	}
+
+	.submit-button {
+		background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+		color: var(--white);
+		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+		border: none;
+		border-radius: calc(var(--spacing) * 1);
+		font-size: 18px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		margin-top: calc(var(--spacing) * 2);
+		box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+	}
+
+	.submit-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(45, 80, 22, 0.4);
+	}
+
+	.thank-you {
+		text-align: center;
+		padding: calc(var(--spacing) * 4);
+		background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 50%, var(--accent-orange) 100%);
+		color: var(--white);
+		border-radius: calc(var(--spacing) * 2);
+		margin-top: calc(var(--spacing) * 4);
+		box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+	}
+
+	.thank-you h3 {
+		font-family: 'Playfair Display', serif;
+		font-size: 24px;
+		margin: 0 0 calc(var(--spacing) * 2) 0;
+	}
+
+	.thank-you p {
+		font-size: 16px;
+		line-height: 1.5;
+		margin: 0;
+		opacity: 0.9;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.content {
+			padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2);
+		}
+
+		.survey-section {
+			padding: calc(var(--spacing) * 3);
+		}
+
+		.background-image {
+			background-attachment: scroll;
+		}
+
+		.radio-group {
+			margin-left: 0;
+		}
+
+		.question-label {
+			font-size: 16px;
+		}
+
+		.radio-option {
+			font-size: 15px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.content {
+			padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+		}
+
+		.survey-section {
+			padding: calc(var(--spacing) * 2);
+		}
+
+		.survey-title {
+			font-size: 24px;
+		}
+	}
+</style>
