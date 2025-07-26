@@ -15,14 +15,25 @@
 				Défiez-vous dans le terrain de jeu de la nature avec des jeux d'évasion immersifs dans des décors de montagnes et de forêts à couper le souffle
 			</p>
 			<div class="coming-soon">
-				<span class="status-badge">🎉 Ouverture Mai 2026 ! 🎉</span>
+				<div class="status-badge-container">
+					<span class="status-badge">🌟✨ BIENTÔT DISPONIBLE ✨🌟</span>
+					<div class="date-announcement">
+						<span class="sparkle">🎊</span>
+						<span class="date-text">Mai 2026</span>
+						<span class="sparkle">🎊</span>
+					</div>
+					<div class="excitement-text">Une aventure magique vous attend ! 🏔️🌲</div>
+				</div>
 			</div>
 		</div>
 
 		<!-- Survey Section -->
 		<div class="survey-section">
 			<h2 class="survey-title">🌟 Aidez-nous à créer l'expérience parfaite ! 🌟</h2>
-			<p class="survey-subtitle">Vos réponses sont complètement anonymes et nous aideront à concevoir la meilleure aventure pour toute la famille !</p>
+			<p class="survey-subtitle">
+				<span class="anonymous-badge">🔒 Vos réponses sont complètement anonymes</span><br>
+				Elles nous aideront à concevoir la meilleure aventure pour toute la famille ! 👨‍👩‍👧‍👦✨
+			</p>
 			<form class="survey-form" id="surveyForm">
 				<!-- Question 1 -->
 				<div class="question-group">
@@ -80,28 +91,28 @@
 				<!-- Question 3 -->
 				<div class="question-group">
 					<label class="question-label">
-						3. Combien de temps voulez-vous que cela dure ? À quelle fréquence voulez-vous résoudre des énigmes par rapport à simplement randonner ?
+						⏰ 3. Combien de temps voulez-vous randonner ?
 					</label>
 					<div class="radio-group">
 						<label class="radio-option">
-							<input type="radio" name="duration" value="court-enigmes" required>
+							<input type="radio" name="duration" value="1-2h" required>
 							<span class="radio-custom"></span>
-							1-2h, beaucoup d'énigmes
+							1-2 heures
 						</label>
 						<label class="radio-option">
-							<input type="radio" name="duration" value="moyen-equilibre" required>
+							<input type="radio" name="duration" value="2-3h" required>
 							<span class="radio-custom"></span>
-							2-3h, équilibre énigmes/randonnée
+							2-3 heures
 						</label>
 						<label class="radio-option">
-							<input type="radio" name="duration" value="long-randonnee" required>
+							<input type="radio" name="duration" value="3-4h" required>
 							<span class="radio-custom"></span>
-							3-4h, plus de randonnée, quelques énigmes
+							3-4 heures
 						</label>
 						<label class="radio-option">
-							<input type="radio" name="duration" value="journee-complete" required>
+							<input type="radio" name="duration" value="journee" required>
 							<span class="radio-custom"></span>
-							Journée complète, énigmes occasionnelles
+							Journée complète (5h+)
 						</label>
 					</div>
 				</div>
@@ -109,9 +120,48 @@
 				<!-- Question 4 -->
 				<div class="question-group">
 					<label class="question-label">
-						4. Combien feriez-vous payer un tel jeu d'évasion si vous étiez le propriétaire (par personne) ?
+						🧩 4. Quel pourcentage de votre temps voulez-vous dédier à la résolution d'énigmes et de jeux ?
 					</label>
 					<div class="radio-group">
+						<label class="radio-option">
+							<input type="radio" name="puzzle_percentage" value="10-25" required>
+							<span class="radio-custom"></span>
+							10-25% (principalement randonnée)
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="puzzle_percentage" value="25-50" required>
+							<span class="radio-custom"></span>
+							25-50% (équilibre randonnée/énigmes)
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="puzzle_percentage" value="50-75" required>
+							<span class="radio-custom"></span>
+							50-75% (beaucoup d'énigmes)
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="puzzle_percentage" value="75-90" required>
+							<span class="radio-custom"></span>
+							75-90% (principalement énigmes)
+						</label>
+					</div>
+				</div>
+
+				<!-- Question 5 -->
+				<div class="question-group">
+					<label class="question-label">
+						💰 5. Combien feriez-vous payer un tel jeu d'évasion si vous étiez le propriétaire (par personne) ?
+					</label>
+					<div class="radio-group">
+						<label class="radio-option">
+							<input type="radio" name="price" value="1-5" required>
+							<span class="radio-custom"></span>
+							1-5€ par personne
+						</label>
+						<label class="radio-option">
+							<input type="radio" name="price" value="5-10" required>
+							<span class="radio-custom"></span>
+							5-10€ par personne
+						</label>
 						<label class="radio-option">
 							<input type="radio" name="price" value="10-20" required>
 							<span class="radio-custom"></span>
@@ -141,8 +191,9 @@
 			</form>
 
 			<div class="thank-you" id="thankYou" style="display: none;">
-				<h3>Merci pour vos réponses !</h3>
-				<p>Vos commentaires nous aideront à créer la meilleure expérience de jeu d'évasion en plein air possible.</p>
+				<h3>🎉 Merci beaucoup pour vos réponses ! 🎉</h3>
+				<p>✨ Vos précieux commentaires nous aideront à créer la plus merveilleuse expérience de jeu d'évasion en plein air ! 🏔️🌲</p>
+				<div class="thank-you-emoji">🙏💚</div>
 			</div>
 		</div>
 	</div>
@@ -151,6 +202,34 @@
 <script>
 	document.getElementById('surveyForm').addEventListener('submit', function(e) {
 		e.preventDefault();
+		
+		// Collect form data
+		const formData = new FormData(e.target);
+		const responses = {
+			timestamp: new Date().toISOString(),
+			interested: formData.get('interested'),
+			players: formData.get('players'),
+			duration: formData.get('duration'),
+			puzzle_percentage: formData.get('puzzle_percentage'),
+			price: formData.get('price')
+		};
+		
+		// Send data to server
+		fetch('/api/save-survey', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(responses)
+		}).then(response => {
+			if (response.ok) {
+				console.log('Survey data saved successfully');
+			} else {
+				console.error('Failed to save survey data');
+			}
+		}).catch(error => {
+			console.error('Error saving survey data:', error);
+		});
 		
 		// Hide form and show thank you message
 		document.getElementById('surveyForm').style.display = 'none';
@@ -239,22 +318,82 @@
 		margin-top: calc(var(--spacing) * 4);
 	}
 
-	.status-badge {
-		display: inline-block;
-		background: linear-gradient(135deg, var(--accent-orange) 0%, #F97316 100%);
-		color: var(--white);
-		padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
-		border-radius: calc(var(--spacing) * 3);
-		font-weight: 600;
-		font-size: 16px;
-		box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
-		animation: pulse 2s infinite;
+	.status-badge-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: calc(var(--spacing) * 2);
 	}
 
-	@keyframes pulse {
-		0% { transform: scale(1); }
-		50% { transform: scale(1.05); }
-		100% { transform: scale(1); }
+	.status-badge {
+		display: inline-block;
+		background: linear-gradient(135deg, #FF6B9D 0%, #C44569 50%, #F8B500 100%);
+		color: var(--white);
+		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+		border-radius: calc(var(--spacing) * 4);
+		font-weight: 700;
+		font-size: 18px;
+		box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+		animation: rainbow-pulse 3s infinite;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.date-announcement {
+		display: flex;
+		align-items: center;
+		gap: calc(var(--spacing) * 2);
+		background: rgba(255, 255, 255, 0.9);
+		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+		border-radius: calc(var(--spacing) * 2);
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.date-text {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--primary-green);
+		font-family: 'Playfair Display', serif;
+	}
+
+	.sparkle {
+		font-size: 20px;
+		animation: sparkle 2s infinite;
+	}
+
+	.excitement-text {
+		font-size: 16px;
+		color: var(--white);
+		font-weight: 600;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+		animation: bounce-gentle 2s infinite;
+	}
+
+	@keyframes rainbow-pulse {
+		0% { 
+			transform: scale(1);
+			box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+		}
+		50% { 
+			transform: scale(1.05);
+			box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
+		}
+		100% { 
+			transform: scale(1);
+			box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+		}
+	}
+
+	@keyframes sparkle {
+		0%, 100% { transform: rotate(0deg) scale(1); }
+		25% { transform: rotate(90deg) scale(1.2); }
+		50% { transform: rotate(180deg) scale(1); }
+		75% { transform: rotate(270deg) scale(1.2); }
+	}
+
+	@keyframes bounce-gentle {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-5px); }
 	}
 
 	.survey-section {
@@ -272,6 +411,25 @@
 		color: var(--neutral-800);
 		text-align: center;
 		margin: 0 0 calc(var(--spacing) * 4) 0;
+	}
+
+	.survey-subtitle {
+		text-align: center;
+		font-size: 16px;
+		color: var(--neutral-600);
+		line-height: 1.6;
+	}
+
+	.anonymous-badge {
+		display: inline-block;
+		background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+		color: var(--white);
+		padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
+		border-radius: calc(var(--spacing) * 2);
+		font-size: 14px;
+		font-weight: 600;
+		margin-bottom: calc(var(--spacing) * 1);
+		box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 	}
 
 	.survey-form {
@@ -389,6 +547,12 @@
 		opacity: 0.9;
 	}
 
+	.thank-you-emoji {
+		font-size: 32px;
+		margin-top: calc(var(--spacing) * 2);
+		animation: bounce-gentle 2s infinite;
+	}
+
 	/* Responsive Design */
 	@media (max-width: 768px) {
 		.content {
@@ -414,6 +578,19 @@
 		.radio-option {
 			font-size: 15px;
 		}
+
+		.status-badge {
+			font-size: 16px;
+			padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+		}
+
+		.date-text {
+			font-size: 20px;
+		}
+
+		.excitement-text {
+			font-size: 14px;
+		}
 	}
 
 	@media (max-width: 480px) {
@@ -427,6 +604,14 @@
 
 		.survey-title {
 			font-size: 24px;
+		}
+
+		.status-badge-container {
+			gap: calc(var(--spacing) * 1.5);
+		}
+
+		.date-announcement {
+			padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
 		}
 	}
 </style>
