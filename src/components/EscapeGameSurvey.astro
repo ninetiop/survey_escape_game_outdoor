@@ -242,15 +242,20 @@
 
 <style>
 	:root {
-		--primary-green: #2D5016;
-		--primary-blue: #1E3A8A;
-		--accent-orange: #EA580C;
+		--forest-green: #1B4332;
+		--mountain-blue: #2D3748;
+		--earth-brown: #8B4513;
+		--pine-green: #355E3B;
+		--stone-gray: #6B7280;
+		--sunset-orange: #D2691E;
+		--moss-green: #8FBC8F;
+		--bark-brown: #654321;
 		--white: #FFFFFF;
-		--neutral-100: #F3F4F6;
-		--neutral-200: #E5E7EB;
-		--neutral-600: #4B5563;
-		--neutral-700: #374151;
-		--neutral-800: #1F2937;
+		--cream: #FFF8DC;
+		--light-stone: #F5F5DC;
+		--medium-stone: #A0A0A0;
+		--dark-stone: #2F4F4F;
+		--deep-forest: #0F2027;
 		--spacing: 8px;
 	}
 
@@ -266,11 +271,14 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2');
+		background-image: 
+			linear-gradient(rgba(27, 67, 50, 0.1), rgba(45, 55, 72, 0.2)),
+			url('https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2');
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
 		z-index: -2;
+		filter: sepia(10%) saturate(120%) brightness(95%);
 	}
 
 	.overlay {
@@ -279,7 +287,13 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(59, 130, 246, 0.4) 50%, rgba(251, 191, 36, 0.3) 100%);
+		background: linear-gradient(
+			135deg, 
+			rgba(27, 67, 50, 0.3) 0%, 
+			rgba(53, 94, 59, 0.4) 30%,
+			rgba(45, 55, 72, 0.3) 70%, 
+			rgba(139, 69, 19, 0.2) 100%
+		);
 		z-index: -1;
 	}
 
@@ -303,15 +317,19 @@
 		font-weight: 700;
 		margin: 0 0 calc(var(--spacing) * 3) 0;
 		line-height: 1.2;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+		text-shadow: 
+			2px 2px 4px rgba(0, 0, 0, 0.5),
+			0 0 20px rgba(27, 67, 50, 0.3);
+		color: var(--cream);
 	}
 
 	.description {
 		font-size: clamp(16px, 2.5vw, 20px);
 		line-height: 1.6;
 		margin: 0 0 calc(var(--spacing) * 4) 0;
-		color: var(--neutral-100);
+		color: var(--light-stone);
 		font-weight: 400;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 	}
 
 	.coming-soon {
@@ -327,33 +345,40 @@
 
 	.status-badge {
 		display: inline-block;
-		background: linear-gradient(135deg, #FF6B9D 0%, #C44569 50%, #F8B500 100%);
+		background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--earth-brown) 50%, var(--pine-green) 100%);
 		color: var(--white);
 		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
 		border-radius: calc(var(--spacing) * 4);
 		font-weight: 700;
 		font-size: 18px;
-		box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
-		animation: rainbow-pulse 3s infinite;
+		box-shadow: 
+			0 6px 20px rgba(139, 69, 19, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+		animation: nature-pulse 3s infinite;
 		text-transform: uppercase;
 		letter-spacing: 1px;
+		border: 2px solid rgba(255, 255, 255, 0.1);
 	}
 
 	.date-announcement {
 		display: flex;
 		align-items: center;
 		gap: calc(var(--spacing) * 2);
-		background: rgba(255, 255, 255, 0.9);
+		background: linear-gradient(135deg, var(--cream) 0%, var(--light-stone) 100%);
 		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
 		border-radius: calc(var(--spacing) * 2);
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+		box-shadow: 
+			0 4px 15px rgba(0, 0, 0, 0.2),
+			inset 0 1px 0 rgba(255, 255, 255, 0.5);
+		border: 2px solid var(--moss-green);
 	}
 
 	.date-text {
 		font-size: 24px;
 		font-weight: 700;
-		color: var(--primary-green);
+		color: var(--forest-green);
 		font-family: 'Playfair Display', serif;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 	}
 
 	.sparkle {
@@ -365,22 +390,30 @@
 		font-size: 16px;
 		color: var(--white);
 		font-weight: 600;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+		text-shadow: 
+			1px 1px 2px rgba(0, 0, 0, 0.5),
+			0 0 10px rgba(27, 67, 50, 0.3);
 		animation: bounce-gentle 2s infinite;
 	}
 
-	@keyframes rainbow-pulse {
+	@keyframes nature-pulse {
 		0% { 
 			transform: scale(1);
-			box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+			box-shadow: 
+				0 6px 20px rgba(139, 69, 19, 0.4),
+				inset 0 1px 0 rgba(255, 255, 255, 0.2);
 		}
 		50% { 
 			transform: scale(1.05);
-			box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
+			box-shadow: 
+				0 8px 25px rgba(139, 69, 19, 0.6),
+				inset 0 1px 0 rgba(255, 255, 255, 0.3);
 		}
 		100% { 
 			transform: scale(1);
-			box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+			box-shadow: 
+				0 6px 20px rgba(139, 69, 19, 0.4),
+				inset 0 1px 0 rgba(255, 255, 255, 0.2);
 		}
 	}
 
@@ -397,39 +430,64 @@
 	}
 
 	.survey-section {
-		background: rgba(255, 255, 255, 0.95);
+		background: linear-gradient(135deg, 
+			rgba(255, 248, 220, 0.95) 0%, 
+			rgba(245, 245, 220, 0.98) 50%,
+			rgba(255, 248, 220, 0.95) 100%
+		);
 		backdrop-filter: blur(20px);
 		border-radius: calc(var(--spacing) * 2);
 		padding: calc(var(--spacing) * 4);
-		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+		box-shadow: 
+			0 16px 48px rgba(0, 0, 0, 0.3),
+			inset 0 1px 0 rgba(255, 255, 255, 0.5),
+			0 0 0 1px rgba(27, 67, 50, 0.1);
+		border: 3px solid var(--moss-green);
+		position: relative;
+	}
+
+	.survey-section::before {
+		content: '';
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		background: linear-gradient(45deg, var(--forest-green), var(--pine-green), var(--earth-brown), var(--mountain-blue));
+		border-radius: calc(var(--spacing) * 2);
+		z-index: -1;
+		opacity: 0.3;
 	}
 
 	.survey-title {
 		font-family: 'Playfair Display', serif;
 		font-size: 28px;
 		font-weight: 600;
-		color: var(--neutral-800);
+		color: var(--forest-green);
 		text-align: center;
 		margin: 0 0 calc(var(--spacing) * 4) 0;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 	}
 
 	.survey-subtitle {
 		text-align: center;
 		font-size: 16px;
-		color: var(--neutral-600);
+		color: var(--dark-stone);
 		line-height: 1.6;
 	}
 
 	.anonymous-badge {
 		display: inline-block;
-		background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+		background: linear-gradient(135deg, var(--pine-green) 0%, var(--forest-green) 100%);
 		color: var(--white);
 		padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
 		border-radius: calc(var(--spacing) * 2);
 		font-size: 14px;
 		font-weight: 600;
 		margin-bottom: calc(var(--spacing) * 1);
-		box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+		box-shadow: 
+			0 2px 8px rgba(27, 67, 50, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
 
 	.survey-form {
@@ -447,8 +505,9 @@
 	.question-label {
 		font-size: 18px;
 		font-weight: 600;
-		color: var(--neutral-800);
+		color: var(--forest-green);
 		line-height: 1.4;
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 	}
 
 	.radio-group {
@@ -465,13 +524,16 @@
 		cursor: pointer;
 		padding: calc(var(--spacing) * 1);
 		border-radius: calc(var(--spacing) * 1);
-		transition: background-color 0.2s ease;
+		transition: all 0.2s ease;
 		font-size: 16px;
-		color: var(--neutral-700);
+		color: var(--dark-stone);
+		font-weight: 500;
 	}
 
 	.radio-option:hover {
-		background-color: var(--neutral-100);
+		background: linear-gradient(135deg, var(--moss-green) 0%, rgba(143, 188, 143, 0.3) 100%);
+		transform: translateX(5px);
+		box-shadow: 0 2px 8px rgba(27, 67, 50, 0.2);
 	}
 
 	.radio-option input[type="radio"] {
@@ -481,16 +543,21 @@
 	.radio-custom {
 		width: 20px;
 		height: 20px;
-		border: 2px solid var(--neutral-600);
+		border: 2px solid var(--stone-gray);
 		border-radius: 50%;
 		position: relative;
 		flex-shrink: 0;
 		transition: all 0.2s ease;
+		background: var(--white);
+		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 	}
 
 	.radio-option input[type="radio"]:checked + .radio-custom {
-		border-color: var(--primary-green);
-		background-color: var(--primary-green);
+		border-color: var(--forest-green);
+		background: linear-gradient(135deg, var(--forest-green) 0%, var(--pine-green) 100%);
+		box-shadow: 
+			0 0 0 3px rgba(27, 67, 50, 0.2),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
 
 	.radio-option input[type="radio"]:checked + .radio-custom::after {
@@ -506,38 +573,71 @@
 	}
 
 	.submit-button {
-		background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+		background: linear-gradient(135deg, var(--forest-green) 0%, var(--mountain-blue) 50%, var(--earth-brown) 100%);
 		color: var(--white);
 		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
 		border: none;
+		border: 2px solid rgba(255, 255, 255, 0.1);
 		border-radius: calc(var(--spacing) * 1);
 		font-size: 18px;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.3s ease;
 		margin-top: calc(var(--spacing) * 2);
-		box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+		box-shadow: 
+			0 4px 15px rgba(27, 67, 50, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.submit-button::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+		transition: left 0.5s;
 	}
 
 	.submit-button:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(45, 80, 22, 0.4);
+		box-shadow: 
+			0 8px 25px rgba(27, 67, 50, 0.5),
+			inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	}
+
+	.submit-button:hover::before {
+		left: 100%;
 	}
 
 	.thank-you {
 		text-align: center;
 		padding: calc(var(--spacing) * 4);
-		background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 50%, var(--accent-orange) 100%);
+		background: linear-gradient(135deg, 
+			var(--forest-green) 0%, 
+			var(--pine-green) 30%,
+			var(--mountain-blue) 70%, 
+			var(--sunset-orange) 100%
+		);
 		color: var(--white);
 		border-radius: calc(var(--spacing) * 2);
 		margin-top: calc(var(--spacing) * 4);
-		box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+		box-shadow: 
+			0 8px 25px rgba(27, 67, 50, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+		border: 2px solid rgba(255, 255, 255, 0.1);
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 	}
 
 	.thank-you h3 {
 		font-family: 'Playfair Display', serif;
 		font-size: 24px;
 		margin: 0 0 calc(var(--spacing) * 2) 0;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	}
 
 	.thank-you p {
@@ -545,6 +645,7 @@
 		line-height: 1.5;
 		margin: 0;
 		opacity: 0.9;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	}
 
 	.thank-you-emoji {
